@@ -1,2 +1,8 @@
 <h3>メールアドレス</h3>
-<%= current_user.email %>
+<%= current_user.email %><br>
+<h3>名前</h3>
+<%= current_user.name %><br>
+<h3>年齢</h3>
+<%= current_user.age %><br>
+<h3>アバター</h3>
+<%= image_tag current_user.avatar if current_user.avatar.attached? %>
