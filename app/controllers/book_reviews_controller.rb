@@ -1,7 +1,10 @@
 class BookReviewsController < ApplicationController
   before_action :set_book_review, only: %i[ show edit update destroy ]
     
-    # url = "/books/" + @book_review.book_id.to_s    
+    url = "/books/" + @book_review.book_id.to_s if @book_review && @book_review.book_id
+    respond_to do |format|
+        format.html {redirect_to url, notice: "Book review was successfully created."}
+    end
     
   # GET /book_reviews or /book_reviews.json
   def index
