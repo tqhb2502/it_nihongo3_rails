@@ -1,6 +1,6 @@
 class BookReviewsController < ApplicationController
   before_action :set_book_review, only: %i[ show edit update destroy ]
-    
+  before_action :authenticate_user!
     url = "/books/" + @book_review.book_id.to_s if @book_review && @book_review.book_id
     respond_to do |format|
         format.html {redirect_to url, notice: "Book review was successfully created."}
